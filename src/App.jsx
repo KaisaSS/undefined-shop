@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Button from './components/Button'
 import ProductCard from './components/ProductCard'
@@ -17,10 +17,10 @@ function App() {
   }, [])
 
 
-  const tt = products.reduce((acc, product) => {
+  const allTags = products.reduce((acc, product) => {
     return [...acc, ...product.fields.tags]
   }, [])
-  const uniqueTags = Array.from(new Set(tt))
+  const uniqueTags = Array.from(new Set(allTags))
 
   if (!products.length) return <div>...Loading</div>
 
